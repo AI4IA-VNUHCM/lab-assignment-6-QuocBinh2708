@@ -15,7 +15,31 @@ Ex:
 
 void Ex3(char *str){
 	//Your codes here
-	
+	char lexicon[100][100], min[100], max[100];
+	int i = 0, j = 0, k, l;
+	for (k=0; str[k]!='\0'; k++){
+		if(str[k]!=' ' && str[k] !='\0'){
+			lexicon[i][j++] = str[k];
+		}
+		else{
+			lexicon[i][j]='\0';
+			i++;
+			j=0;
+		}
+	}
+	l = i+1;
+	strcpy(min, lexicon[0]);
+	strcpy(max, lexicon[0]);
+	for (k=0; k<l; k++){
+		if (strlen(min)>strlen(lexicon[k])){
+			strcpy(min, lexicon[k]);
+		}
+		if (strlen(max)<strlen(lexicon[k])){
+			strcpy(max, lexicon[k]);
+		}
+	}
+	printf("Shortest word: %s\n", min);
+	printf("Longest word: %s\n",max);
 }
 
 int main(int argc, char *argv[]) {

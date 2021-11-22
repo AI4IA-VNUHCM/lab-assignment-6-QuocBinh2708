@@ -15,7 +15,28 @@ Ex:
 
 void Ex4(char *str){
 	//Your codes here
-	
+	int i, j, l;
+	l = strlen(str);
+	for (i=0; i<l; i++){
+		if (str[0]==' '){
+			for (i=0; i< (l-1); i++)
+			str[i] = str[i+1];
+			str[i] = '\0';
+			l--;
+			i = -1;
+			continue;
+		}
+		if (str[i]==' ' && str[i+1]==' '){
+			for (j=i; j<(l-1); j++){
+				str[j] = str[j+1];
+			}
+			str[j] = '\0';
+			l--;
+			i--;
+		}
+	}
+	printf ("%s", str);
+	return;
 }
 
 int main(int argc, char *argv[]) {
